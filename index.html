@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <title>Spotlight.js &ndash; Modern HTML5 Image Gallery</title>
+    <script src="dist/spotlight.bundle.js"></script>
+    <!--<script src="dist/js/spotlight.min.js"></script>-->
+    <!--<link rel="stylesheet" href="dist/css/spotlight.min.css">-->
+    <!-- Custom Control: -->
+    <style>
+        /*
+         * Custom Control:
+         * ---------------
+         */
+        /* custom classes are always prefixed by "spl-" automatically */
+        .spl-like{
+            background-image: url(demo/gallery/heart-outline.svg);
+            background-size: 23px;
+        }
+        /* optionally, additional state to toggle the button: */
+        .spl-like.on{
+            background-image: url(demo/gallery/heart.svg);
+        }
+        /*
+         * Custom Animation:
+         * -----------------
+         */
+        /* custom scene transition (slide effect) */
+        .only-this-gallery.show .spl-scene{
+            transition: transform 0.2s ease;
+        }
+        /* custom animation "visible state" (css context by custom classname "only-this-gallery" to apply these animation just on a specific gallery) */
+        .only-this-gallery.show .spl-pane > *{
+            clip-path: circle(100% at center);
+            transition: transform 0.35s ease,
+                        opacity 0.65s ease,
+                        clip-path 0.8s ease;
+        }
+        /* custom animation "hidden state" ("custom" is the name of the animation you pass as gallery option) */
+        .only-this-gallery .spl-pane .custom {
+            clip-path: circle(0px at center) ;
+            transition: transform 0.65s ease,
+                        opacity 0.65s ease;
+        }
+        /* animation state when gallery is hidden */
+        #spotlight.only-this-gallery{
+            clip-path: circle(0px at center);
+        }
+        /* animation state when gallery will open */
+        #spotlight.only-this-gallery.show{
+            clip-path: circle(100% at center);
+            transition: clip-path 0.65s ease 0.15s;
+        }
+    </style>
+    <link rel="stylesheet" href="demo/style.css">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Web's most easy to integrate lightbox gallery library. Super-lightweight, outstanding performance, no dependencies.">
+    <meta name="keywords" content="gallery, lightbox, photo-gallery, javascript-library, image-viewer, lightbox-gallery-plugin, gallery-plugin, gallery-extension, gallery-widget, lightbox-gallery, gallery-template, gallery-viewer, gallery-simple, lightbox-plugin">
+    <meta name="thumbnail" content="https://nextapps-de.github.io/spotlight/demo/favicon.png">
+    <meta property="og:url" content="https://nextapps-de.github.io/spotlight/">
+    <meta property="og:site_name" content="Spotlight.js - Modern HTML5 Image Gallery">
+    <meta property="og:image" content="https://nextapps-de.github.io/spotlight/demo/og-image.png">
+    <meta property="og:title" content="Spotlight.js - Modern HTML5 Image Gallery">
+    <meta property="og:description" content="WinBox is the web's most easy to integrate lightbox gallery library. Super-lightweight, outstanding performance, no dependencies.">
+    <meta property="og:type" content="Software">
+    <meta property="og:url" content="https://nextapps-de.github.io/spotlight/">
+    <link rel="icon" sizes="16x16 32x32 48x48 64x64" type="image/png" href="https://nextapps-de.github.io/spotlight/demo/favicon.png">
+    <link rel="icon" sizes="512x512 1024x1024" type="image/png" href="https://nextapps-de.github.io/spotlight/demo/og-image.png">
+</head>
+<body>
+    <br>
+    <h1>
+        <img src="demo/negativo.png" alt="Spotlight.js: Modern HTML5 Image Gallery">
+    </h1>
+    <hr>
+    <b>Electronic Press Kit</b>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/09kmKCcDAaejwUHWwPFzlU?utm_source=generator&theme=0" width="90%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="spotlight-group" id="Grupales">
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Grup8.jpg">
+            <img src="demo/gallery/Grup8.jpg">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Grup3.jpg" data-description="Sarcásmica es una banda independiente de rock de la Ciudad de México con veinte años de trayectoria. Su nombre original fue SinCódigo y en 2021 cambió a Sarcásmica. Su estilo musical es post-grunge, grunge, alternativo.">
+            <img src="demo/gallery/Grup3.jpg" alt="Sarcásmica">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Grup6.jpg" data-description="El proyecto surgió entre los años 1999 y 2000 con la intención de tocar rolas grunge de la época y composiciones propias.
+        Se han grabado tres EPs: Nadie ez perfekto (2001), Pequeña Señorita 1565 (2006) y Juguete (2021). La banda se ha presentado en escenarios como en el desparecido Hard Rock Life, Irish Pub Satélite, el Chopo, Centro Cultural José Martí, Sistema de Transporte Metro, Festival de la Ciudad de México y en los 50 años del Festival Avándaro, entre otros tantos; además ha compartido escenario con bandas como la Castañeda y la banda Bostik. Sarcásmica está formada por Alan Ortega en la batería; Antonio Trejo en la guitarra; Alberto Azuara en voz y guitarra y Victor García en el bajo.">
+            <img src="demo/gallery/Grup6.jpg" alt="Sarcásmica">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Grup5.jpg" data-description="El proyecto surgió entre los años 1999 y 2000 con la intención de tocar rolas grunge de la época y composiciones propias.
+        Se han grabado tres EPs: Nadie ez perfekto (2001), Pequeña Señorita 1565 (2006) y Juguete (2021). La banda se ha presentado en escenarios como en el desparecido Hard Rock Life, Irish Pub Satélite, el Chopo, Centro Cultural José Martí, Sistema de Transporte Metro, Festival de la Ciudad de México y en los 50 años del Festival Avándaro, entre otros tantos; además ha compartido escenario con bandas como la Castañeda y la banda Bostik. Sarcásmica está formada por Alan Ortega en la batería; Antonio Trejo en la guitarra; Alberto Azuara en voz y guitarra y Victor García en el bajo.">
+            <img src="demo/gallery/Grup5.jpg" alt="Sarcásmica">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Vict1.jpg" data-button="Leer más" data-button-href="javascript:Spotlight.goto(9)"data-description="Bajista en Sarcásmica.">
+            <img src="demo/gallery/Vict1.jpg" alt="Victor García">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Beto2.jpg" data-button="Leer más" data-button-href="javascript:Spotlight.goto(10)" data-description="Letrista, guitarrista y voz en Sarcásmica.">
+            <img src="demo/gallery/Beto2.jpg" alt="Beto Asuara">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Tono2.jpg" data-src="demo/gallery/Vict1.jpg" data-button="Leer más" data-button-href="javascript:Spotlight.goto(11)" data-description="Guitarrista en Sarcásmica.">
+            <img src="demo/gallery/Tono2.jpg" alt="Toño Trejo">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Joey1.jpg" data-button="Leer más" data-button-href="javascript:Spotlight.goto(12);" data-description="Baterista en Sarcásmica.">
+            <img src="demo/gallery/Joey1.jpg" alt="Joey Ortega">
+        </div>
+        <a class="spotlight" data-media="node" data-src="#Victor" data-description="Bajista en Sarcásmica. Nació el 29 de septiembre de 1995. Comenzó a tocar el bajo a los 17 años en la banda DeciVel, banda tlaxcalteca ganadora del segundo lugar en la batalla de Bandas “Rola Tu Rola”, realizada en Six Flags México, presentando temas de su coautoría. Posteriormente fue bajista de ZIAN, banda de Guanajuato abridora de Moenia en el festival “Dia D”, con quienes grabó un EP y estuvo de gira por algunos estados del bajío. Junto con Elizabeth Schembri (Metal Armónico Simple), Andrea Padilla (Bloody Benders) y Eduardo Lara (Eduardo Lara & Los Fantasmas), formaron parte de Bloodmage. Ha sido alumno de Mariana García (Skat Jazz y Näna Zäna) y Ángel Rodríguez (Rojo Marfil, Luis Pesetti, Flor de Lumbre, Black Hippo). Sus influencias varían desde el rock alternativo, punk, ritmos latinos y el metal sinfónico, lo cual le da un característico estilo híbrido consistente en alternar fingerstyle, tapping, slap y artificial harmonics.">
+            <img src="demo/gallery/Vict1.jpg">
+            <img src="demo/gallery/Vict7.jpg">
+            <img src="demo/gallery/Vict2.jpg">
+        </a>
+        <a class="spotlight" data-media="node" data-src="#Beto" data-description="Letrista, guitarrista y voz en Sarcásmica. Nació el 7 de febrero de 1981. Músico chilango, inestable y autodidacta con preferencias por lo disonante. Tomó cursos en la Universidad de la Música, Escuela Superior de Música, Sindicato Único de Trabajadores de la Música, Escuela Nacional de Música, en la Rolando Calles y, en línea, con GuitarInvaders; actualmente sus estudios son autodidactas. Formó su primer proyecto de rock en 1998 con el nombre de Fuego Obscuro y tras disolverse continuó sucesivamente con Stupid Toxic Pandas, SinCódigo, Pequeña Señorita 1565, Hipster 46&2; de los cuales se grabaron tres Eps homónimos de los últimos proyectos. En 2020, surgió Sarcásmica como un cambio tras el re-encuentro de SinCódigo y el primer resultado fue el Ep Juguete. Ha tocado en escenarios como el Teatro Esperanza Iris, Feria del libro Ciudad de México, Centro Cultural José Martí, Festival de la Ciudad de México, Metro Copilco y Pino Suárez, Salón Cosmos, Irish Pub, El Chopo.">
+            <img src="demo/gallery/Beto1.jpg">
+            <img src="demo/gallery/Beto7.jpg">
+            <img src="demo/gallery/Beto2.jpg">
+        </a>
+        <a class="spotlight" data-media="node" data-src="#Tono" data-description="Guitarrista en Sarcásmica. Nació el 5 de enero de 1983. Comenzó a tocar la guitarra a la edad de 16 años, tocando temas de sus bandas favoritas como: Nirvana, Led Zeppelin, Pearl Jam etc. La primera banda a la que se integró fue La Tóxica Paulina, banda de punk, ska y surf tocando durante 3 años; posteriormente se disuelve la banda y sigue su camino con demás bandas y proyectos no concretados. Es hasta el 2010 se integra a HIPSTER 46&2, banda de rock alternativo, donde durante un año y medio toca en diferentes festivales culturales dentro de la CDMX. Posteriormente sigue su recorrido con más bandas, una de ellas es DIA DE FURIA, banda de nu metal, donde durante cuatro años tocando en muchas parte del interior de la república y diferentes festivales como: Festival cervantino, Feria Internacional del Libro, Festival Aquí no hay escena en el ya extinto y mítico Foro Alicia, así mismo abriendo shows para diferentes festivales culturales en varios estados de la república mexicana.">
+            <img src="demo/gallery/Tono1.jpg">
+            <img src="demo/gallery/Tono7.jpg">
+            <img src="demo/gallery/Tono2.jpg">
+        </a>
+        <a class="spotlight" data-media="node" data-src="#Joey" data-description="Baterista en Sarcásmica. Músico mexicano nacido el 7 de septiembre de 1991. Inicia en la batería acústica a la edad de 16 años con el profesor Alejandro Chapa Nieto, dos año después se integra a la banda de covers Requiem dónde la Banda fue telonera de distintos artistas como El Gran Silencio y Elefante, en la feria municipal de Chalco e Ixtapaluca. En 2013 se integra a la banda Sabrosisima Ska, dónde graban su primer álbum y primera gira por el Estado de México y áreas metropolitanas por un año y hasta salir de la agrupación por temas personales para posteriormente formar la banda Parábola, una banda de tributos y covers de rock en inglés. Entre sus influencias se encuentra el rock alternativo, metal progresivo, ska y ritmos latinos en general que hacen una mezcla en su estilo único y diferente para una banda de Rock/Grunge.">
+            <img src="demo/gallery/Joey1.jpg">
+            <img src="demo/gallery/Joey5.jpg">
+            <img src="demo/gallery/Joey2.jpg">
+        </a>
+        <!--
+        <div class="spotlight" data-src="demo/gallery/brooklyn-bridge-1791001.jpg"></div>-->
+    </div>
+    <!-- Hidden Backstore -->
+    <div style="display: none">
+        <div id="Victor" style="width: 100%">
+            <b>Victor García</b><br><br>
+            <img class="image" src="demo/gallery/Vict1.jpg" height="333">
+            <img class="image" src="demo/gallery/Vict2.jpg" height="333">
+            <img class="image" src="demo/gallery/Vict3.jpg" height="333">
+            <img class="image" src="demo/gallery/Vict4.jpg" height="333">
+            <img class="image" src="demo/gallery/Vict5.jpg" height="333">
+            <img class="image" src="demo/gallery/Vict6.jpg" height="333">
+            <img class="image" src="demo/gallery/Vict7.jpg" height="333">
+            <img class="image" src="demo/gallery/Vict8.jpg" height="333">
+        </div>
+    </div>
+    <div style="display: none">
+        <div id="Beto" style="width: 100%">
+            <b>Beto Asuara</b><br><br>
+            <img class="image" src="demo/gallery/Beto1.jpg" height="333">
+            <img class="image" src="demo/gallery/Beto7.jpg" height="333">
+            <img class="image" src="demo/gallery/Beto2.jpg" height="333">
+        </div>
+    </div>
+    <div style="display: none">
+        <div id="Tono" style="width: 100%">
+            <b>Toño Trejo</b><br><br>
+            <img class="image" src="demo/gallery/Tono1.jpg" width="500" height="333">
+            <img class="image" src="demo/gallery/Tono7.jpg" width="500" height="333">
+            <img class="image" src="demo/gallery/Tono2.jpg" width="500" height="333">
+        </div>
+    </div>
+    <div style="display: none">
+        <div id="Joey" style="width: 100%">
+            <b>Joey Ortega</b><br><br>
+            <img class="image" src="demo/gallery/Joey1.jpg" width="500" height="333">
+            <img class="image" src="demo/gallery/Joey4.jpg" width="500" height="333">
+            <img class="image" src="demo/gallery/Joey7.jpg" width="500" height="333">
+        </div>
+    </div>
+    <hr>
+    <b>Fechas anteriores</b>
+    <div class="spotlight-group" id="Carteles">
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Cartel210401.jpg">
+            <img src="demo/gallery/Cartel210401.jpg">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Cartel211106.jpg">
+            <img src="demo/gallery/Cartel211106.jpg">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Cartel211106b.jpg">
+            <img src="demo/gallery/Cartel211106b.jpg">
+        </div>
+        <div class="spotlight" data-media="image" data-src="demo/gallery/Cartel211211.jpg">
+            <img src="demo/gallery/Cartel211211.jpg">
+        </div>
+        <div class="spotlight" data-src="demo/gallery/Cartel220212.jpeg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel220528.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel220602.jpeg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel220828.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel220903.jpeg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230318.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230318b.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230319.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230414.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230428.jpeg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230512.jpeg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230513.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230520.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel230727.jpg"></div>
+        <div class="spotlight" data-src="demo/gallery/Cartel231012.jpeg"></div>
+    </div>
+    <hr>
+    <b>Próximas fechas</b>
+    <div class="widget_iframe" style="display:inline-block;width:100%;height:550px;margin:0;padding:0;border:0;"><iframe class="widget_iframe" src="https://www.reverbnation.com/widget_code/html_widget/artist_8610518?widget_id=52&amp;posted_by=artist_8610518&pwc[design]=default&pwc[background_color]=%23333333&pwc[layout]=detailed&pwc[show_map]=0%2C1&pwc[size]=fit" width="100%" height="100%" frameborder="0" scrolling="no" style="width:0px;min-width:100%;max-width:50%;"></iframe><div class="footer_branding" style="margin-top:-5px;font-size:10px;font-family:Arial;"><center><a href="https://www.reverbnation.com/band-promotion/fanreach?utm_campaign=a_features_fanreach&utm_medium=widget&utm_source=HTML5_Event_Schedule&utm_content=widgetfooter_Email newsletters for bands at ReverbNation.com" target="_blank" style="text-decoration:none;color:#444;"></a></center></div></div>
+    <br>
+    <hr>
+    <br>
+    <script>
+        /* Full example of API usage including "like button" as a custom control */
+
+        //import Spotlight from "./src/js/spotlight.js";
+
+        (function(){
+
+            const gallery = [{
+
+                title: "Lorem ipsum dolor sit amet",
+                description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                src: "demo/gallery/london-1758181.jpg",
+                button: "Download Image",
+                onclick: Spotlight.download,
+                like: false
+            },{
+                title: "At vero eos et accusam",
+                description: "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                src: "demo/gallery/sea-1975403.jpg",
+                button: "Next Slide",
+                onclick: Spotlight.next,
+                like: false,
+            },{
+                title: "Duis autem vel eum iriure dolor",
+                description: "In hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim.",
+                src: "demo/gallery/newport-beach-2089906.jpg",
+                button: "Close Gallery",
+                onclick: Spotlight.close,
+                like: false
+            }/*,{
+                media: "node",
+                control: "next,prev,close",
+                src: (function(){
+                    const iframe = document.createElement("iframe");
+                    iframe.src = "https://www.youtube.com/embed/tgbNymZ7vqY";
+                    return iframe;
+                }())
+            }*/];
+
+            window.showGallery = function(index){
+
+                const control = to_array(document.getElementById("control").getElementsByTagName("input"));
+                const animation = to_array(document.getElementById("animation").getElementsByTagName("input"));
+                const modifier = document.getElementById("modifier").getElementsByTagName("input");
+
+                // store the button element to apply dom changes to it
+                let like;
+                // store the current index
+                let slide = 0;
+
+                function handler(){
+
+                    // get the current like state
+                    // at this point we use the stored last index from the variable "slide"
+                    const current_like_state = !gallery[slide].like;
+
+                    // toggles the current like state
+                    gallery[slide].like = current_like_state;
+
+                    // assign the state as class to visually represent the current like state
+                    this.classList.toggle("on");
+
+                    if(current_like_state){
+
+                        // do something if liked ...
+                    }
+                    else{
+
+                        // do something if unliked ...
+                    }
+                }
+
+                const options = {
+
+                    class: "only-this-gallery",
+                    index: index,
+                    control: control,
+                    animation: animation,
+                    // fires when gallery opens
+                    onshow: function(index){
+
+                        // the method "addControl" returns the new created control element
+                        like = Spotlight.addControl("like", handler);
+                    },
+                    // fires when gallery change to another page
+                    onchange: function(index, options){
+
+                        // store the current index for the button listener
+                        // the slide index start from 1 (as "page 1")
+                        slide = index - 1;
+
+                        // initially apply the stored like state when slide is openened
+                        // at this point we use the stored like element
+                        like.classList.toggle("on", gallery[slide].like);
+                    },
+                    // fires when gallery is requested to close
+                    onclose: function(index){
+
+                        // remove the custom button, so you are able
+                        // to open next gallery without this custom control
+                        Spotlight.removeControl("like");
+                    }
+                };
+
+                assign(options, modifier);
+
+                Spotlight.show(gallery, options);
+            };
+
+            /* helper functions to assign options for the demo page, so skip this part from here */
+
+            function to_array(nodelist){
+
+                const arr = [];
+
+                for(let i = 0, node; i < nodelist.length; i++){
+
+                    node = nodelist[i];
+                    node.checked && arr.push(node.value);
+                }
+
+                return arr;
+            }
+
+            function assign(options, nodelist){
+
+                for(let i = 0, node; i < nodelist.length; i++){
+
+                    node = nodelist[i];
+
+                    if(node.checked){
+
+                        if(node.name){
+
+                            options[node.name] = node.value;
+                        }
+                        else{
+
+                            options[node.value] = node.checked;
+                        }
+                    }
+                }
+            }
+        }());
+    </script>
+</body>
+</html>
