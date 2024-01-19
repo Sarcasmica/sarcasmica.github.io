@@ -177,22 +177,20 @@
     <hr>
     <b>Rider y Stageplot</b>
     <div class="spotlight-group" id="Rider">
-        <div class="spotlight" data-media="image" data-src="demo/gallery/Efecto ablación.png">
-            <img src="demo/gallery/Stageplot.png">
+        <div id="mostrarPDF" onclick="togglePDF()">
+            <img src="demo/gallery/Stageplot.png" width=23%>
         </div>
-
 
 <style>
     #pdfContainer {
         display: none;
         position: fixed;
-        top: 50px;
-        left: 50px;
-        right: 250px;
-        width: 92%; /* Ajusta el ancho del contenedor según tus necesidades */
-        height: 80%; /* Ajusta la altura del contenedor según tus necesidades */
-        background: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
-        z-index: 500; /* Valor alto para estar encima de otros elementos */
+        top: 5%;
+        left: 3%;
+        width: 95%; /* Ajusta el ancho del contenedor según tus necesidades */
+        height: 90%; /* Ajusta la altura del contenedor según tus necesidades */
+        background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente */
+        z-index: 200; /* Valor alto para estar encima de otros elementos */
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar el contenedor */
     }
 
@@ -205,19 +203,32 @@
         cursor: pointer;
     }
 </style>
-<div id="mostrarPDF" onclick="togglePDF()">Saca el PDF perro</div>
 
 <div id="pdfContainer">
     <iframe id="pdfViewer" src="demo/docs/Rider  Stageplot - Sarcásmica (2024).pdf"></iframe>
 </div>
 
 <script>
+    // Variable para rastrear si se ha hecho clic al menos una vez
+    var primerClic = false;
+
     function togglePDF() {
         var pdfContainer = document.getElementById("pdfContainer");
-        if (pdfContainer.style.display === "none") {
+        if (!primerClic) {
+            // Primer clic: mostrar PDF y activar el controlador de eventos
             pdfContainer.style.display = "block";
+            document.addEventListener("keydown", handleKeyPress);
+            primerClic = true;
         } else {
-            pdfContainer.style.display = "none";
+            // Otros clics: alternar la visibilidad del PDF
+            pdfContainer.style.display = (pdfContainer.style.display === "none") ? "block" : "none";
+        }
+    }
+
+    function handleKeyPress(event) {
+        // Ocultar el PDF si la tecla presionada es Escape (código 27)
+        if (event.key === "Escape" || event.keyCode === 27) {
+            document.getElementById("pdfContainer").style.display = "none";
         }
     }
 </script>
