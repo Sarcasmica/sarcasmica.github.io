@@ -199,12 +199,23 @@
         height: 100%;
     }
 
-    #mostrarPDF {
-        cursor: pointer;
-    }
+    #cerrarPDF {
+            display: none; /* Inicialmente oculto */
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #fff; /* Texto blanco */
+        }
+
+        #mostrarPDF {
+            cursor: pointer;
+        }
 </style>
 
 <div id="pdfContainer">
+    <span id="cerrarPDF" onclick="cerrarPDF()">Cerrar ✖</span>
     <iframe id="pdfViewer" src="demo/docs/Rider  Stageplot - Sarcásmica (2024).pdf"></iframe>
 </div>
 
@@ -214,21 +225,30 @@
 
     function togglePDF() {
         var pdfContainer = document.getElementById("pdfContainer");
+        var cerrarPDF = document.getElementById("cerrarPDF");
+
         if (!primerClic) {
-            // Primer clic: mostrar PDF y activar el controlador de eventos
             pdfContainer.style.display = "block";
             document.addEventListener("keydown", handleKeyPress);
+            cerrarPDF.style.display = "block";
             primerClic = true;
         } else {
-            // Otros clics: alternar la visibilidad del PDF
             pdfContainer.style.display = (pdfContainer.style.display === "none") ? "block" : "none";
+            cerrarPDF.style.display = (pdfContainer.style.display === "none") ? "none" : "block";
         }
     }
 
+    function cerrarPDF() {
+        var pdfContainer = document.getElementById("pdfContainer");
+        var cerrarPDF = document.getElementById("cerrarPDF");
+
+        pdfContainer.style.display = "none";
+        cerrarPDF.style.display = "none";
+    }
+
     function handleKeyPress(event) {
-        // Ocultar el PDF si la tecla presionada es Escape (código 27)
         if (event.key === "Escape" || event.keyCode === 27) {
-            document.getElementById("pdfContainer").style.display = "none";
+            cerrarPDF();
         }
     }
 </script>
