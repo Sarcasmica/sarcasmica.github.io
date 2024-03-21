@@ -175,7 +175,6 @@
             <img class="image" src="demo/gallery/Joey4.jpg" width="500" height="333">
         </div>
     </div>
-    <!--
     <hr>
     <b>Videos</b>
     <div class="spotlight-group" id="Videos">
@@ -183,7 +182,6 @@
             <img src="demo/gallery/Aquelarre.png">
         </div>
     </div>
-    -->
     <hr>
     <b>Letras</b>
     <div class="spotlight-group" id="Letras">
@@ -206,7 +204,7 @@
         <div class="spotlight" data-media="image" data-src="demo/gallery/EntrevistaPersonasNoGratasCita.png" data-button="Ver entrevista completa" data-button-href="https://www.youtube.com/watch?v=f6Unr157pHI&t=2845s">
             <img src="demo/gallery/EntrevistaPersonasNoGratasCitalow.png" alt="Personas No Gratas">
         </div>
-        <div class="spotlight" data-media="image" data-src="demo/gallery/EntrevistaAloSanLuis.png" data-button="Ver entrevista completa" data-button-href="https://www.facebook.com/RevistaAloSanLuis/videos/1478365686080506/">
+        <div class="spotlight" data-media="image" data-src="demo/gallery/EntrevistaAloSanLuisCita.png" data-button="Ver entrevista completa" data-button-href="https://www.facebook.com/RevistaAloSanLuis/videos/1478365686080506/">
             <img src="demo/gallery/EntrevistaAloSanLuisCitalow.png" alt="Aló San Luis">
         </div>
     </div>
@@ -360,6 +358,14 @@
                 button: "Close Gallery",
                 onclick: Spotlight.close,
                 like: false
+            },{
+                title: "Video 1",
+                src: "path/to/video1.mp4",
+                media: "video", // Nuevo: indica que este elemento es un video
+            },{
+                title: "Video 2",
+                src: "path/to/video2.mp4",
+                media: "video", // Nuevo: indica que este elemento es un video
             }/*,{
                 media: "node",
                 control: "next,prev,close",
@@ -375,6 +381,7 @@
                 const control = to_array(document.getElementById("control").getElementsByTagName("input"));
                 const animation = to_array(document.getElementById("animation").getElementsByTagName("input"));
                 const modifier = document.getElementById("modifier").getElementsByTagName("input");
+                const currentItem = gallery[index];
 
                 // store the button element to apply dom changes to it
                 let like;
